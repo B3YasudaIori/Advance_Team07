@@ -1,9 +1,9 @@
 # プロジェクト概要
 
 <!-- PROJECT-CONFIG
-repository_name=
-app_name=
-app_dir=
+repository_name=Advance_Team07
+app_name=advance_team07
+app_dir=advance_team07
 -->
 
 ## 開発者（GitHub名）
@@ -11,6 +11,10 @@ app_dir=
 `/init-project` が、GitHubから取得した最新の Collaborator 一覧でこのブロックを更新する。各Issueの担当者はGitHub上で管理する。
 
 <!-- COLLABORATORS: START -->
+- akishinnosuke
+- Arahibi256
+- B3YasudaIori
+- e1b24009-eng
 <!-- COLLABORATORS: END -->
 
 ## 開発するアプリケーションの条件
