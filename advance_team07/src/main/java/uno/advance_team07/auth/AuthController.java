@@ -24,14 +24,20 @@ public class AuthController {
     return "login";
   }
 
+  @GetMapping("/register")
+  public String registerPage() {
+    return "register";
+  }
+
   @PostMapping("/register")
   public String register(@RequestParam String username, @RequestParam String password, Model model) {
     if (authService.register(username, password)) {
       model.addAttribute("message", "登録が完了しました。ログインしてください。");
+      return "login";
     } else {
       model.addAttribute("error", "ユーザー名またはパスワードが不正か、ユーザー名が登録済みです。");
+      return "register";
     }
-    return "login";
   }
 
   @PostMapping("/login")
