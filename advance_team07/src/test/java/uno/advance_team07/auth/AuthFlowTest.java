@@ -42,7 +42,10 @@ class AuthFlowTest {
   void 登録済みユーザーは重複登録できない() throws Exception {
     mockMvc.perform(post("/register")
         .param("username", "auth-flow-duplicate-user")
-        .param("password", "password"));
+        .param("password", "password"))
+        .andExpect(status().isOk())
+        .andExpect(view().name("login"))
+        .andExpect(content().string(containsString("登録が完了しました")));
 
     mockMvc.perform(post("/register")
         .param("username", "auth-flow-duplicate-user")
@@ -56,7 +59,10 @@ class AuthFlowTest {
   void 誤ったパスワードではログインできない() throws Exception {
     mockMvc.perform(post("/register")
         .param("username", "auth-flow-failed-login-user")
-        .param("password", "password"));
+        .param("password", "password"))
+        .andExpect(status().isOk())
+        .andExpect(view().name("login"))
+        .andExpect(content().string(containsString("登録が完了しました")));
 
     mockMvc.perform(post("/login")
         .param("username", "auth-flow-failed-login-user")
