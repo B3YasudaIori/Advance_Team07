@@ -3,6 +3,7 @@ package uno.advance_team07.player;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.annotations.Update;
 
 @Mapper
 public interface PlayerMapper {
@@ -12,4 +13,7 @@ public interface PlayerMapper {
 
   @Select("SELECT username, balance, active FROM players WHERE username = #{username}")
   Player findByUsername(String username);
+
+  @Update("UPDATE players SET balance = #{balance} WHERE username = #{username}")
+  int updateBalance(String username, int balance);
 }
