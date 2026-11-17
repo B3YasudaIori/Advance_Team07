@@ -26,6 +26,7 @@
     <section th:if="${username != null}">
       <h2>待機部屋</h2>
       <p th:text="${username} + ' さん、待機部屋へようこそ。'"></p>
+      <p>所持金: <span th:text="${balance}"></span></p>
     </section>
   </main>
 </body>
