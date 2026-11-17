@@ -44,6 +44,7 @@ public class AuthController {
   public String login(@RequestParam String username, @RequestParam String password, Model model) {
     if (authService.authenticate(username, password)) {
       model.addAttribute("username", username);
+      model.addAttribute("balance", authService.getBalance(username));
       return "login";
     }
     model.addAttribute("error", "ユーザー名またはパスワードが正しくありません。");
